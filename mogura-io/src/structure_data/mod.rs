@@ -94,7 +94,8 @@ pub trait StructureData: Sync + Send {
     // e.g. kd-tree
     fn bonds_indirected(&self) -> Vec<(usize, usize)> {
         let n = self.atoms().len();
-        let mut bonds = Vec::with_capacity(n * n);
+        // at most 5 bonds for each atoms
+        let mut bonds = Vec::with_capacity(5 * n);
         let atoms = self.atoms();
         for i in 0..n {
             for j in 0..i {
@@ -116,7 +117,8 @@ pub trait StructureData: Sync + Send {
     }
     fn bonds_directed(&self) -> Vec<(usize, usize)> {
         let n = self.atoms().len();
-        let mut bonds = Vec::with_capacity(n * n);
+        // at most 5 bonds for each atoms
+        let mut bonds = Vec::with_capacity(5 * n);
         let atoms = self.atoms();
         for i in 0..n {
             for j in 0..i {
