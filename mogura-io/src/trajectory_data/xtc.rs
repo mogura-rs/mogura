@@ -19,7 +19,8 @@ impl TrajectoryData for XtcData {
 
         let trajectory = topology.xtc_iter(trajectory_file)?;
 
-        let mut frames = Vec::new();
+        let (frame_size, _) = trajectory.size_hint();
+        let mut frames = Vec::with_capacity(frame_size);
         for (frame_id, frame) in trajectory.enumerate() {
             match frame {
                 Ok(frame) => {
@@ -36,8 +37,6 @@ impl TrajectoryData for XtcData {
                     frames.push(Frame::new(frame_id, positions));
                 }
                 Err(e) => {
-                    // panic!("{:?}", e);
-                    // return Err(e.to_string())
                     return Err(anyhow::anyhow!(e.to_string()));
                 }
             }

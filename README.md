@@ -1,5 +1,8 @@
 # mogura: A molecular graphic toy visualizer in Rust
 
+![mogumi](./mogura-wasm/og.png)
+
+
 <div align="center">
 
 --> [Try demo with WASM using WebGPU](https://mogura-rs.github.io/mogura/) <--
@@ -19,6 +22,8 @@
 ~~~bash
 cargo install --git https://github.com/mogura-rs/mogura mogura --locked
 ~~~
+
+- Or you can get the binary file from [releases](https://github.com/mogura-rs/mogura/releases/latest)
 
 ### Run mogura
 ~~~bash
@@ -74,6 +79,7 @@ Input files are available [here](https://github.com/mogura-rs/example-inputs)
 - [ ] Lv1: Load multiple structure files
 - [ ] Lv1: Morphing by specifying two structures
 - [ ] Lv2: Pick up atoms and highlight them with their name
+- [ ] Lv2: Optimize rendering
 - [ ] Lv2: Allow more flexible configuration of plugins
 - [ ] Lv3: Secondary structure prediction using DSSP or STRIDE
 - [ ] Lv3: Visualize structure as Cartoon and NewCartoon
@@ -87,6 +93,12 @@ $$
 
 mogura also means "Mole".
 
+## About Mogumi
+Mogumi is the mascot character of Mogura. For details, see [mogumi-storage](https://github.com/mogura-rs/mogumi-chan).
+
+<div align="center">
+  <img src="./mogura-wasm/mogumi.png" alt="mogumi" width="300" height="300">
+</div>
 
 ## Useful Reference
 

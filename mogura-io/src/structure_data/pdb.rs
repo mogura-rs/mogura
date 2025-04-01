@@ -1,4 +1,5 @@
 use crate::structure_data::*;
+use std::io::BufRead;
 
 #[cfg(target_arch = "wasm32")]
 use wasm_bindgen::prelude::*;
@@ -27,14 +28,13 @@ impl StructureData for PDBData {
 impl PDBData {
     pub fn load_from_content(content: &str) -> Result<Self, anyhow::Error> {
         let reader = std::io::BufReader::new(std::io::Cursor::new(content));
+        let line_count = reader
+            .lines()
+            .try_fold(0, |acc, _line| -> Result<usize, std::io::Error> {
+                Ok(acc + 1)
+            })?;
 
-        // let (input_pdb, _errors) = pdbtbx::open_pdb_raw(
-        //     reader,
-        //     pdbtbx::Context::show("a.pdb"), // random name
-        //     pdbtbx::StrictnessLevel::Loose,
-        // )
-        // .unwrap();
-
+        let reader = std::io::BufReader::new(std::io::Cursor::new(content));
         let (input_pdb, _errors) = pdbtbx::ReadOptions::new()
             .set_format(pdbtbx::Format::Pdb)
             .set_level(pdbtbx::StrictnessLevel::Loose)
@@ -42,8 +42,8 @@ impl PDBData {
             .map_err(|_| anyhow::anyhow!("Failed to read PDB"))?;
 
         let mut id = 0;
-        let mut atoms = Vec::new();
-        let mut residues = Vec::new();
+        let mut atoms = Vec::with_capacity(line_count);
+        let mut residues = Vec::with_capacity(line_count);
 
         for i in 0..input_pdb.model_count() {
             let model = input_pdb.model(i).unwrap();
@@ -51,7 +51,7 @@ impl PDBData {
                 let chain = input_pdb.chain(j).unwrap();
                 for k in 0..chain.residue_count() {
                     let residue = chain.residue(k).unwrap();
-                    let mut tmp_atoms = Vec::new();
+                    let mut tmp_atoms = Vec::with_capacity(residue.atom_count());
                     for l in 0..residue.atom_count() {
                         let atom = residue.atom(l).unwrap();
                         let persed_atom = Atom {

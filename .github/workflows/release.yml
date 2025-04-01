@@ -13,7 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         job:
-          # could not compile on ubuntu
+          # could not compile on ubuntu due to openssl, wayland
           # - { os: ubuntu-latest , target: x86_64-unknown-linux-gnu       , use-cross: false , extension: ""   }
           # - { os: ubuntu-latest , target: x86_64-unknown-linux-musl      , use-cross: true  , extension: ""   }
           # - { os: ubuntu-latest , target: armv7-unknown-linux-gnueabihf  , use-cross: true  , extension: ""   }

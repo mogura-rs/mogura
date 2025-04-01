@@ -148,7 +148,7 @@ impl MoguraState {
             loop_trajectory: false,
             current_frame_id: 0,
             init_look_at: true,
-            logs: Vec::new(),
+            logs: Vec::with_capacity(100),
             // selections: vec![EachSelection::default()],
         }
     }
