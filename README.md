@@ -20,7 +20,7 @@
 ## Quick Start
 ### Install
 ~~~bash
-cargo install --git https://github.com/mogura-rs/mogura mogura --locked
+cargo install --git https://github.com/mogura-rs/mogura mogura-cli --locked
 ~~~
 
 - Or you can get the binary file from [releases](https://github.com/mogura-rs/mogura/releases/latest)
