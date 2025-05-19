@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="icon" href="./mogumi-97d358f87ac596a0.png" integrity="sha384-URkasi1Ixo/McglCRyQmQNJ0GWgBpwt2rjknj3u6pTyfSGS+s+WQUSIOTDRJ5vlp"/>
+    <link rel="icon" href="./mogumi.png" type="image/png">
+    <meta property="og:image" content="https://raw.githubusercontent.com/mogura-rs/mogura/main/mogura-wasm/og.png" />
+    <title>mogura-wasm</title>
+    <style>
+        html {
+            /* Remove touch delay: */
+            touch-action: manipulation;
+        }
+
+        html,
+        body,
+        canvas {
+            margin: 0 !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+            overflow: hidden;
+            background: black;
+            z-index: 0;
+        }
+
+        /* Position canvas in center-top: */
+        canvas {
+            outline: none;
+            display: block;
+            position: absolute;
+            top: 0%;
+            left: 50%;
+            transform: translate(-50%, 0%);
+        }
+    </style>
+
+<body oncontextmenu="return false;">
+
+<script type="module">
+import init, * as bindings from './mogura-wasm-caa9c2e677007ff8.js';
+const wasm = await init({ module_or_path: './mogura-wasm-caa9c2e677007ff8_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script></body>
+
+<link rel="modulepreload" href="./mogura-wasm-caa9c2e677007ff8.js" crossorigin="anonymous" integrity="sha384-R96azXFoCDd11J8vJfStzkMu3RGSCc4N07Oo81VhpnvtVjpmQlMoBHPuh6iXr2CF"><link rel="preload" href="./mogura-wasm-caa9c2e677007ff8_bg.wasm" crossorigin="anonymous" integrity="sha384-y1FKbrGJUDPeX+UhgJ1UMyPSmkEfIjmEIWLPGdoDWajIZeaz8IT59AvR7PoqtXki" as="fetch" type="application/wasm"></html>
