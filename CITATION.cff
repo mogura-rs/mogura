@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "mogura"
+repository-code: "https://github.com/mogura-rs/mogura"
+type: software
+authors:
+  - family-names: "Hori"
+    given-names: "Tatsuki"
+    orcid: "https://orcid.org/0009-0001-3991-8367"
+version: "0.0.1"
+date-released: "2025-04-02"
+license:
+  - "Apache-2.0"
+  - "MIT"
