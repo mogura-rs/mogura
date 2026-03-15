@@ -75,15 +75,16 @@ Input files are available [here](https://github.com/mogura-rs/example-inputs)
   - dirty pdb file will cause parse error because of pdbtbx.
 
 ## TODO
-- [ ] Lv1: Change configuration of selected atoms (e.g. Color, Radius, Opacity)
-- [ ] Lv1: Load multiple structure files
-- [ ] Lv1: Morphing by specifying two structures
-- [ ] Lv2: Pick up atoms and highlight them with their name
-- [ ] Lv2: Optimize rendering
-- [ ] Lv2: Allow more flexible configuration of plugins
-- [ ] Lv3: Secondary structure prediction using DSSP or STRIDE
-- [ ] Lv3: Visualize structure as Cartoon and NewCartoon
-- [ ] Lv4: Path tracing using [bevy-hikari](https://github.com/cryscan/bevy-hikari)(but no more developed) or [developing default feature](https://github.com/bevyengine/bevy/issues/639)
+- [ ] Replace from cargo-make to make
+- [ ] Change configuration of selected atoms (e.g. Color, Radius, Opacity)
+- [ ] Load multiple structure files
+- [ ] Morphing by specifying two structures
+- [ ] Pick up atoms and highlight them with their name
+- [ ] Optimize rendering
+- [ ] Allow more flexible configuration of plugins
+- [ ] Secondary structure prediction using DSSP or STRIDE with [dssp-rs](https://github.com/mogura-rs/dssp-rs)
+- [ ] Visualize structure as Cartoon and NewCartoon
+- [ ] Ray tracing with [bevy_solari](https://crates.io/crates/bevy_solari)
 
 ## About the name
 
